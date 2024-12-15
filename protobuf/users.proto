@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option go_package = "github.com/Nabeeha-Mudassir/RideBookingService/users";
+
+service UserService {
+  rpc GetUserID (GetUserRequest) returns (GetUserResponse) {}
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc DeleteUser (	DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+message User {
+	int32 user_id = 1;
+  string name = 2;
+}
+message GetUserRequest {
+  int32 user_id = 1;
+}
+
+message GetUserResponse {
+  string name = 1;  //supposed to return user_id
+}
+
+message CreateUserRequest {
+  string name = 1;
+}
+
+message CreateUserResponse {
+  int32 user_id = 1; //supposed to return user_id
+}
+
+message DeleteUserRequest {
+  int32 user_id = 1;
+}
+
+message DeleteUserResponse {
+  string deletion_message = 1;
+}
